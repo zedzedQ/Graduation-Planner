@@ -1,5 +1,6 @@
 class Course {
-	constructor(courseNum, courseTitle, status, prerequisite, termAvailability) {
+	constructor(id, courseNum, courseTitle, status, prerequisite, termAvailability) {
+		this.id = id;
 		this.classNum = classNum;
 		this.courseTitle = courseTitle;
 		this.status = status;
@@ -7,4 +8,4 @@ class Course {
 		this.termAvailability = termAvailability;
 	}
 }
-module.exports = Couese;
+module.exports = Course;
