@@ -7,4 +7,4 @@ class Course {
 		this.termAvailability = termAvailability;
 	}
 }
-module.exports = Couese;
+module.exports = Course;
