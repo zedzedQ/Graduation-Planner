@@ -22,7 +22,7 @@ export default class Course extends React.Component {
         const isDragDisabled = this.props.course.status !== 1;
         return(
             <Draggable 
-                draggableId={this.props.course.title} 
+                draggableId={this.props.course.courseTitle} 
                 index={this.props.index}
                 isDragDisabled={isDragDisabled}
             >
@@ -33,7 +33,7 @@ export default class Course extends React.Component {
                         {...provided.dragHandleProps}
                         isDragDisabled={isDragDisabled}
                     >
-                        {this.props.course.title}
+                        {this.props.course.courseTitle}
                     </Container>
                 )}
             </Draggable>
