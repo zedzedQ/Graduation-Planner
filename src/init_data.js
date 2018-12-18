@@ -234,19 +234,79 @@ const cis472 = new Course(
 	["spring"]
 	);
 
-const writing = new Course(0, 0, 1, 0, ["fall", "winter", "spring"]);
-const math = new Course(0, 0, 1, 0, ["fall", "winter", "spring"]);
-const nonCis = new Course(0, 0, 1, 0, ["fall", "winter", "spring"]);
-const science1 = new Course(0, 0, 1, 0, ["fall", "winter", "spring"]);
-const science2 = new Course(0, 0, 1, 0, ["fall", "winter", "spring"]);
-const science3 = new Course(0, 0, 1, 0, ["fall", "winter", "spring"]);
+const mathGeneral1 = new Course (
+	"mathGeneral1",
+	"1",
+	"General Mathmatic 1",
+	1,
+	[],
+	["fall", "winter", "spring"]
+	);
+const mathGeneral2 = new Course (
+	"mathGeneral2",
+	"2",
+	"General Mathmatic 2",
+	1,
+	[],
+	["fall", "winter", "spring"]
+	);
+const mathSequence1 = new Course (
+	"mathSequence1",
+	"1",
+	"Sequence Mathmatic 1",
+	1,
+	[],
+	["fall", "winter", "spring"]
+	);
+const mathSequence2 = new Course (
+	"mathSequence2",
+	"2",
+	"Sequence Mathmatic 2",
+	1,
+	["mathSequence1"],
+	["fall", "winter", "spring"]
+	);
+const mathUpper = new Course (
+	"mathUpper",
+	"1",
+	"Upper Mathmatic",
+	1,
+	[],
+	["fall", "winter", "spring"]
+	);
+const scienceSequence1 = new Course (
+	"scienceSequence1",
+	"1",
+	"Sequence science 1",
+	1,
+	[],
+	["fall", "winter", "spring"]
+	);
+const scienceSequence2 = new Course (
+	"scienceSequence2",
+	"2",
+	"Sequence science 2",
+	1,
+	["scienceSequence1"],
+	["fall", "winter", "spring"]
+	);
+const scienceSequence3 = new Course (
+	"scienceSequence3",
+	"3",
+	"Sequence science 3",
+	1,
+	["scienceSequence2"],
+	["fall", "winter", "spring"]
+	);
+const writing = new Course(0, 0, 0, 1, 0, ["fall", "winter", "spring"]);
+const nonCis = new Course(0, 0, 0, 1, 0, ["fall", "winter", "spring"]);
 
 const courseDict = {
 	"cis_lower": [cis210, cis211, cis212],  
     "cis_upper":[cis313, cis314, cis315, cis330, cis415, cis422, cis425],
     "cis_elective":[cis399, cis410],
-    "science": [science1, science2, science3], 
-    "math": [math], 
+    "science": [scienceSequence1, scienceSequence2, scienceSequence3], 
+    "math": [mathGeneral1, mathGeneral2, mathSequence1, mathSequence2, mathUpper], 
     "writing": [writing]
 }；
 
@@ -278,6 +338,14 @@ const dataDict = {
     "cis453": cis453,
     "cis461": cis461,
     "cis471": cis471,
-    "cis472": cis472
+    "cis472": cis472,
+    "mathGeneral1": mathGeneral1,
+    "mathGeneral2": mathGeneral2,
+    "mathSequence1": mathSequence1,
+    "mathSequence2": mathSequence2,
+    "mathUpper": mathUpper,
+    "scienceSequence1", scienceSequence1,
+    "scienceSequence2", scienceSequence2,
+    "scienceSequence3", scienceSequence3
 };
 
