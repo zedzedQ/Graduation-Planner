@@ -1,19 +1,29 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {NavLink} from "react-router-dom";
 
 
 // Welcome Page
-const WelcomePage = () => (
+class WelcomePage extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            columns: [],
+            cisCourses: [],
+            columnOrder: [],
+            numberOfColumns: 0
+        };
+    }
 
-    <div>
-        <NavLink  to="/main" >  Main page </NavLink>
+    render() {
+        return (
+            <div>
 
-        {/* add more components here  */}
-            
-        content later
+                <NavLink  to="/main" >  Main page </NavLink>
+    
+            </div>
+        );
+    }
 
-    </div>
-
-)
+}
 
 export default WelcomePage;
