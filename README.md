@@ -2,7 +2,7 @@
 
 ## Author (Order by last name and role)
 
-Xin Chen, Linshu Huang, Xiaodong Quan, Qianzhi Zhao, Ziming Guo(Mentor)
+Xin Chen, Linshu Huang, Xiaodong Quan, Zhiqian Zhao, Ziming Guo(Mentor)
 
 ## Introduction
 
