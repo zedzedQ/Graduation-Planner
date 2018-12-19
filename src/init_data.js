@@ -290,7 +290,22 @@ const cis472 = new Course(
 	["cis315"], 
 	["spring"]
 	);
-
+const math231 = new Course (
+	"math231",
+	"231",
+	"Discrete Math 1",
+	1,
+	[],
+	["fall", "winter", "spring"]
+	);
+const math232 = new Course (
+	"math232",
+	"232",
+	"Discrete Math 2",
+	1,
+	[],
+	["fall", "winter", "spring"]
+	);
 const mathGeneral1 = new Course (
 	"mathGeneral1",
 	"1",
@@ -375,9 +390,9 @@ const nonCis = new Course(
 const courseDict = {
 	"cis_lower": [cis210, cis211, cis212],  
     "cis_upper":[cis313, cis314, cis315, cis330, cis415, cis422, cis425],
-    "cis_elective":[cis399, cis410],
+    "cis_elective":[cis399, cis401, cis403, cis404, cis405, cis406, cis407, cis408, cis409, cis410, cis423, cis420, cis422, cis427, cis431, cis432, cis433, cis441, cis443, cis445, cis451, cis453, cis461, cis471, cis472],
     "science": [scienceSequence1, scienceSequence2, scienceSequence3], 
-    "math": [mathGeneral1, mathGeneral2, mathSequence1, mathSequence2, mathUpper], 
+    "math": [math231, math232, mathGeneral1, mathGeneral2, mathSequence1, mathSequence2, mathUpper], 
     "writing": [writing]
 }；
 
@@ -392,8 +407,8 @@ const dataDict = {
     "cis330": cis330,
     "cis399": cis399,
     "cis401": cis401,
-    "cis403": cis402,
-    "cis404": cis403,
+    "cis403": cis403,
+    "cis404": cis404,
     "cis405": cis405,
     "cis406": cis406,
     "cis407": cis407,
@@ -418,6 +433,8 @@ const dataDict = {
     "cis471": cis471,
     "cis472": cis472,
     "nonCis": nonCis,
+    "math231": math231,
+    "math232": math232,
     "mathGeneral1": mathGeneral1,
     "mathGeneral2": mathGeneral2,
     "mathSequence1": mathSequence1,
