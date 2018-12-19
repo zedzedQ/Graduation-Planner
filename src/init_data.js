@@ -83,10 +83,67 @@ const cis399 = new Course(
 	["cis212"], 
 	["fall", "winter", "spring"]
 	);
+
+const cis401 = new Course(
+	"cis401", 
+	"401", 
+	"CIS research", 
+	1, 
+	["cis212"], 
+	["fall", "winter", "spring"]
+	);
+const cis403 = new Course(
+	"cis403", 
+	"403", 
+	"CIS thesis"
+	1, 
+	["cis212"], 
+	["fall", "winter", "spring"]
+	);
+const cis404 = new Course(
+	"cis404", 
+	"404", 
+	"Introduction to internships", 
+	1, 
+	["cis212"], 
+	["fall", "winter", "spring"]
+	);
+const cis405 = new Course(
+	"cis405", 
+	"405", 
+	"CIS reading",
+	1, 
+	["cis212"], 
+	["fall", "winter", "spring"]
+	);
+const cis406 = new Course(
+	"cis406", 
+	"406", 
+	"CIS specific filed studies",
+	1, 
+	["cis212"], 
+	["fall", "winter", "spring"]
+	);
 const cis407 = new Course(
 	"cis407", 
 	"407", 
 	"This seminar focuses on careers and internships for CIS students. It will cover resume preparation and polishing, interviewing skills, and will have talks by local companies on work environments, career choices, internship opportunities, and how best to prepare for a career in Computer Science. We will also read articles about the current job market and CS related job prospects.", 
+	1, 
+	["cis212"], 
+	["fall", "winter", "spring"]
+	);
+const cis408 = new Course(
+	"cis408", 
+	"408", 
+	"CIS workshop",
+	1, 
+	["cis212"], 
+	["fall", "winter", "spring"]
+	);
+const cis409 = new Course(
+	"cis409", 
+	"409", 
+	"CIS practicum",
 	1, 
 	["cis212"], 
 	["fall", "winter", "spring"]
@@ -240,7 +297,7 @@ const mathGeneral1 = new Course (
 	"General Mathmatic 1",
 	1,
 	[],
-	["fall", "winter", "spring"]
+	["fall", "winter", "spring", "summer"]
 	);
 const mathGeneral2 = new Course (
 	"mathGeneral2",
@@ -248,7 +305,7 @@ const mathGeneral2 = new Course (
 	"General Mathmatic 2",
 	1,
 	[],
-	["fall", "winter", "spring"]
+	["fall", "winter", "spring", "summer"]
 	);
 const mathSequence1 = new Course (
 	"mathSequence1",
@@ -256,7 +313,7 @@ const mathSequence1 = new Course (
 	"Sequence Mathmatic 1",
 	1,
 	[],
-	["fall", "winter", "spring"]
+	["fall", "winter", "spring", "summer"]
 	);
 const mathSequence2 = new Course (
 	"mathSequence2",
@@ -264,7 +321,7 @@ const mathSequence2 = new Course (
 	"Sequence Mathmatic 2",
 	1,
 	["mathSequence1"],
-	["fall", "winter", "spring"]
+	["fall", "winter", "spring", "summer"]
 	);
 const mathUpper = new Course (
 	"mathUpper",
@@ -272,7 +329,7 @@ const mathUpper = new Course (
 	"Upper Mathmatic",
 	1,
 	[],
-	["fall", "winter", "spring"]
+	["fall", "winter", "spring", "summer"]
 	);
 const scienceSequence1 = new Course (
 	"scienceSequence1",
@@ -280,7 +337,7 @@ const scienceSequence1 = new Course (
 	"Sequence science 1",
 	1,
 	[],
-	["fall", "winter", "spring"]
+	["fall", "winter", "spring", "summer"]
 	);
 const scienceSequence2 = new Course (
 	"scienceSequence2",
@@ -288,7 +345,7 @@ const scienceSequence2 = new Course (
 	"Sequence science 2",
 	1,
 	["scienceSequence1"],
-	["fall", "winter", "spring"]
+	["fall", "winter", "spring", "summer"]
 	);
 const scienceSequence3 = new Course (
 	"scienceSequence3",
@@ -296,10 +353,24 @@ const scienceSequence3 = new Course (
 	"Sequence science 3",
 	1,
 	["scienceSequence2"],
-	["fall", "winter", "spring"]
+	["fall", "winter", "spring", "summer"]
 	);
-const writing = new Course(0, 0, 0, 1, 0, ["fall", "winter", "spring"]);
-const nonCis = new Course(0, 0, 0, 1, 0, ["fall", "winter", "spring"]);
+const writing = new Course(
+	"writing", 
+	"1", 
+	"writing 300 level", 
+	1, 
+	[], 
+	["fall", "winter", "spring", "summer"]
+	);
+const nonCis = new Course(
+	"nonCis", 
+	"1", 
+	"non CIS place holder", 
+	1, 
+	[], 
+	["fall", "winter", "spring", "summer"]
+	);
 
 const courseDict = {
 	"cis_lower": [cis210, cis211, cis212],  
@@ -320,7 +391,14 @@ const dataDict = {
     "cis322": cis322,
     "cis330": cis330,
     "cis399": cis399,
+    "cis401": cis401,
+    "cis403": cis402,
+    "cis404": cis403,
+    "cis405": cis405,
+    "cis406": cis406,
     "cis407": cis407,
+    "cis408": cis408,
+    "cis409": cis409,
     "cis415": cis415,
     "cis425": cis425,
     "cis410": cis410,
@@ -339,6 +417,7 @@ const dataDict = {
     "cis461": cis461,
     "cis471": cis471,
     "cis472": cis472,
+    "nonCis": nonCis,
     "mathGeneral1": mathGeneral1,
     "mathGeneral2": mathGeneral2,
     "mathSequence1": mathSequence1,
