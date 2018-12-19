@@ -388,7 +388,7 @@ const nonCis = new Course(
 	);
 
 const courseDict = {
-	"cis_lower": [cis210, cis211, cis212],  
+	"cis_lower": [math231, math232, cis210, cis211, cis212],  
     "cis_upper":[cis313, cis314, cis315, cis330, cis415, cis422, cis425],
     "cis_elective":[cis399, cis401, cis403, cis404, cis405, cis406, cis407, cis408, cis409, cis410, cis423, cis420, cis422, cis427, cis431, cis432, cis433, cis441, cis443, cis445, cis451, cis453, cis461, cis471, cis472],
     "science": [scienceSequence1, scienceSequence2, scienceSequence3], 
