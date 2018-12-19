@@ -294,7 +294,7 @@ const cis472 = new Course(
 const mathGeneral1 = new Course (
 	"mathGeneral1",
 	"1",
-	"General Mathmatic 1",
+	"General Math 1",
 	1,
 	[],
 	["fall", "winter", "spring", "summer"]
@@ -302,7 +302,7 @@ const mathGeneral1 = new Course (
 const mathGeneral2 = new Course (
 	"mathGeneral2",
 	"2",
-	"General Mathmatic 2",
+	"General Math 2",
 	1,
 	[],
 	["fall", "winter", "spring", "summer"]
@@ -310,7 +310,7 @@ const mathGeneral2 = new Course (
 const mathSequence1 = new Course (
 	"mathSequence1",
 	"1",
-	"Sequence Mathmatic 1",
+	"Sequence Math 1",
 	1,
 	[],
 	["fall", "winter", "spring", "summer"]
@@ -318,7 +318,7 @@ const mathSequence1 = new Course (
 const mathSequence2 = new Course (
 	"mathSequence2",
 	"2",
-	"Sequence Mathmatic 2",
+	"Sequence Math 2",
 	1,
 	["mathSequence1"],
 	["fall", "winter", "spring", "summer"]
@@ -326,7 +326,7 @@ const mathSequence2 = new Course (
 const mathUpper = new Course (
 	"mathUpper",
 	"1",
-	"Upper Mathmatic",
+	"Upper Math",
 	1,
 	[],
 	["fall", "winter", "spring", "summer"]
