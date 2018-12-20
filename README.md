@@ -1,8 +1,8 @@
 # CIS graduation planner (InsomniHack)
 
-## Author (Order by last name and role)
+## Author (Order by last name)
 
-Xin Chen, Linshu Huang, Xiaodong Quan, Zhiqian Zhao, Ziming Guo(Mentor)
+Xin Chen, Linshu Huang,  Ziming Guo, Xiaodong Quan, Zhiqian Zhao
 
 ## Introduction
 
