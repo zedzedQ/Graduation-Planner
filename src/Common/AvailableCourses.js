@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Column from './Column';
-const ColumnContainer = styled.div`
+const SectionContainer = styled.div`
     margin: 8px;
     border: 1px solid lightgrey;
     border-radius: 2px;
@@ -15,7 +15,7 @@ const ColumnContainer = styled.div`
 export default class AvailableCourses extends React.Component {
     render() {
         return (
-            <ColumnContainer>
+            <SectionContainer>
                     {
                         this.props.sections.map((sectionId, index) => {
                             const section = this.props.state.columns[sectionId]; // find the section in columns
@@ -27,7 +27,7 @@ export default class AvailableCourses extends React.Component {
                     }
                     {provided.placeholder}
                 )}
-            </ColumnContainer>
+            </SectionContainer>
         )
     }
 }
