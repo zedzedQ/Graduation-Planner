@@ -6,7 +6,7 @@ import { Draggable } from 'react-beautiful-dnd';
 const Container = styled.div`
   border:${props => (
     props.isDragDisabled ? '2px solid lightgrey' : '2px solid #1bba41'
-)};
+  )};
   border-radius: 15px;
   padding: 8px;
   color: white;

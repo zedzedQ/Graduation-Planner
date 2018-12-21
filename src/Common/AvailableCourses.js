@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Column from './Column';
+
 const SectionContainer = styled.div`
     margin: 8px;
     border: 1px solid lightgrey;
@@ -17,16 +18,17 @@ export default class AvailableCourses extends React.Component {
         return (
             <SectionContainer>
                     {
+                        // console.log(this.props.state.columns, this.props.sections)
+                       
                         this.props.sections.map((sectionId, index) => {
                             const section = this.props.state.columns[sectionId]; // find the section in columns
-                            const courses = section.courseIds.map(courseId => this.props.state.cisCourses[courseId]); // find the list of instances coressponding to the courseId in this section
+                            const courses = section.taskIds.map(courseId => this.props.state.cisCourses[courseId]); // find the list of instances coressponding to the courseId in this section
+
                             const isDropDisabled = false;
                             // we need the column title for displaying so we pass it, which is section in our case here
-                            return <Column key={section.id} column={section} courses={courses} isDropDisabled={isDropDisabled}/>;
+                            return <Column key={section.id} column={section} tasks={courses} isDropDisabled={isDropDisabled}/>;
                         })
                     }
-                    {provided.placeholder}
-                )}
             </SectionContainer>
         )
     }

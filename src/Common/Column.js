@@ -19,6 +19,8 @@ const CourseList = styled.div`
     background-color: ${props => (props.isDraggingOver ? 'skyblue' : 'white')};
     flex-grow: 1;
     min-height = 100px;
+    height: 140px;
+    overflow: auto;
 `;
 
 export default class Column extends React.Component {
@@ -39,7 +41,7 @@ export default class Column extends React.Component {
                             isDraggingOver={snapshot.isDraggingOver}
                         >
                             {
-                                this.props.courses.map((course, index) => (
+                                this.props.tasks.map((course, index) => (
                                 <Course key={course.id} course={course} index={index}/>
                                 ))
                             }
