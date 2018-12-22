@@ -486,6 +486,12 @@ const initialData = {
             id: 'columnTaken',
             title: 'taken courses',
             courseIds: [],
+
+        'non-cis':{
+            id: "non-cis",
+            title: 'non cis courses',
+            courseIds: [],
+        }
         }
     },
 

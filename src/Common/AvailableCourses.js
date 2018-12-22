@@ -18,8 +18,7 @@ export default class AvailableCourses extends React.Component {
         return (
             <SectionContainer>
                     {
-                        // console.log(this.props.state.columns, this.props.sections)
-                       
+                        
                         this.props.sections.map((sectionId, index) => {
                             const section = this.props.state.columns[sectionId]; // find the section in columns
                             const courses = section.courseIds.map(courseId => this.props.state.cisCourses[courseId]); // find the list of instances coressponding to the courseId in this section
