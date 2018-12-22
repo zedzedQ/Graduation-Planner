@@ -28,6 +28,7 @@ class WelcomePage extends Component {
    }
 
     onDragStart = (start) => {
+        // maybe delete this (css currently is overriding it)
         document.body.style.color = 'orange';
         const homeIn= this.state.columnOrder.indexOf(start.source.droppableId);
         const course = this.state.cisCourses[start.draggableId];
