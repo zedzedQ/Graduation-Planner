@@ -16,7 +16,7 @@ const Title = styled.h3`
 `;
 const CourseList = styled.div`
     padding: 8px;
-    background-color: ${props => (props.isDraggingOver ? 'skyblue' : 'white')};
+    background-color: ${props => (props.isHighlighted ? 'skyblue' : 'white')};
     flex-grow: 1;
     min-height = 100px;
     height: 140px;
@@ -39,6 +39,7 @@ export default class Column extends React.Component {
                             ref={provided.innerRef}
                             {...provided.droppableProps}
                             isDraggingOver={snapshot.isDraggingOver}
+                            isHighlighted={this.props.isHighlighted}
                         >
                             {
                                 this.props.courses.map((course, index) => (

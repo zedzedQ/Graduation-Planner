@@ -25,18 +25,22 @@ class WelcomePage extends Component {
         //     numberOfColumns: data.welcomeOrder.length,
             
         // };
-
    }
 
-    onDragstart = (start) => {
+    onDragStart = (start) => {
         document.body.style.color = 'orange';
-        
         const homeIn= this.state.columnOrder.indexOf(start.source.droppableId);
-       
+        const course = this.state.cisCourses[start.draggableId];
+        const highlightSection = course.category;
+        const highlightTerm = this.state.welcomeOrder[this.state.welcomeOrder.length-1];
+
         this.setState({
             homeIn,
+            highlightSection,
+            highlightTerm
         });
     };
+
 
     onDragUpdate = update => {
 
@@ -44,23 +48,35 @@ class WelcomePage extends Component {
 
     onDragEnd = result => {
         this.setState(
-            {homeIndex: null,}
+            {homeIndex: null,
+            highlightSection: null,
+            highlightTerm: null}
         )
-        document.body.style.color = 'inherit';
 
         // reset the color
         const {destination, source, draggableId} = result;
 
+        /**
+         *  Determine the cases which we just do nothing and return
+         */        
+        // do nothing when no destination
         if (!destination) { 
             return;
         }
-
-        // we might want to edit this so that user cannot re-order the availble course list
+            
+        // if the source is the destination, we do not set state
         if (destination.droppableId === source.droppableId &&
             destination.index === source.index
         ) {
             return;
         }
+
+        // we can only drag to the same column or taken column
+        const course = this.state.cisCourses[draggableId];
+        if (destination.droppableId !== course.category && destination.droppableId !== this.state.welcomeOrder[this.state.welcomeOrder.length - 1]){
+            return;
+        }    
+
 
         const start = this.state.columns[source.droppableId];
         const finish = this.state.columns[destination.droppableId];
@@ -139,7 +155,8 @@ class WelcomePage extends Component {
                         const courses = column.courseIds.map(courseId => this.state.cisCourses[courseId]);
 
                         const isDropDisabled = false;
-                        return <Column key={column.id} column={column} courses={courses} isDropDisabled={isDropDisabled}/>;
+                        const isHighlighted = this.state.highlightTerm === columnId;
+                        return <Column key={column.id} column={column} courses={courses} isDropDisabled={isDropDisabled} isHighlighted={isHighlighted}/>;
                         })}
                     </Container>
 
