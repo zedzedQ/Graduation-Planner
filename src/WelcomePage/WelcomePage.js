@@ -49,7 +49,10 @@ class WelcomePage extends Component {
 
     onDragEnd = result => {
         this.setState(
-            {homeIndex: null,
+            {
+                homeIndex: null,
+                highlightSection: null,
+                highlightTerm: null,
             }
         )
 
