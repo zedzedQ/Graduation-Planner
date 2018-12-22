@@ -22,11 +22,11 @@ export default class AvailableCourses extends React.Component {
                        
                         this.props.sections.map((sectionId, index) => {
                             const section = this.props.state.columns[sectionId]; // find the section in columns
-                            const courses = section.taskIds.map(courseId => this.props.state.cisCourses[courseId]); // find the list of instances coressponding to the courseId in this section
+                            const courses = section.courseIds.map(courseId => this.props.state.cisCourses[courseId]); // find the list of instances coressponding to the courseId in this section
 
                             const isDropDisabled = false;
                             // we need the column title for displaying so we pass it, which is section in our case here
-                            return <Column key={section.id} column={section} tasks={courses} isDropDisabled={isDropDisabled}/>;
+                            return <Column key={section.id} column={section} courses={courses} isDropDisabled={isDropDisabled}/>;
                         })
                     }
             </SectionContainer>

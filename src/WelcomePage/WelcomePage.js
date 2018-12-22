@@ -31,7 +31,7 @@ class WelcomePage extends Component {
     onDragstart = (start) => {
         document.body.style.color = 'orange';
         
-        const homeIn= this.state.columnOrder.indexOf(start.source.dropoableId);
+        const homeIn= this.state.columnOrder.indexOf(start.source.droppableId);
        
         this.setState({
             homeIn,
@@ -66,14 +66,14 @@ class WelcomePage extends Component {
         const finish = this.state.columns[destination.droppableId];
 
         if (start === finish) {
-            const newTaskIds = Array.from(start.taskIds);
-            newTaskIds.splice(source.index, 1); // from the index, we remove one element
-            newTaskIds.splice(destination.index, 0, draggableId); // start from destination and insert the taskid
+            const newCourseIds = Array.from(start.courseIds);
+            newCourseIds.splice(source.index, 1); // from the index, we remove one element
+            newCourseIds.splice(destination.index, 0, draggableId); // start from destination and insert the taskid
 
 
             const newCol = {
                 ...start,
-                taskIds: newTaskIds
+                courseIds: newCourseIds
             };
 
             const newState = {
@@ -88,19 +88,19 @@ class WelcomePage extends Component {
             return;
         } else {
             // moving from one list to another
-            const startTaskIds = Array.from(start.taskIds);
-            startTaskIds.splice(source.index, 1);
+            const startCourseIds = Array.from(start.courseIds);
+            startCourseIds.splice(source.index, 1);
 
             const newStart = {
                 ...start,
-                taskIds: startTaskIds,
+                courseIds: startCourseIds,
             };
 
-            const finishTaskIds = Array.from(finish.taskIds);
-            finishTaskIds.splice(destination.index, 0, draggableId);
+            const finishCourseIds = Array.from(finish.courseIds);
+            finishCourseIds.splice(destination.index, 0, draggableId);
             const newFinish = {
                 ...finish,
-                taskIds: finishTaskIds
+                courseIds: finishCourseIds
             };
 
             const newState = {
@@ -136,10 +136,10 @@ class WelcomePage extends Component {
 
                         {this.state.welcomeOrder.slice(6).map((columnId, index)=> {
                         const column = this.state.columns[columnId];
-                        const tasks = column.taskIds.map(taskId => this.state.cisCourses[taskId]);
+                        const courses = column.courseIds.map(courseId => this.state.cisCourses[courseId]);
 
                         const isDropDisabled = false;
-                        return <Column key={column.id} column={column} tasks={tasks} isDropDisabled={isDropDisabled}/>;
+                        return <Column key={column.id} column={column} courses={courses} isDropDisabled={isDropDisabled}/>;
                         })}
                     </Container>
 

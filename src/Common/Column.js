@@ -41,7 +41,7 @@ export default class Column extends React.Component {
                             isDraggingOver={snapshot.isDraggingOver}
                         >
                             {
-                                this.props.tasks.map((course, index) => (
+                                this.props.courses.map((course, index) => (
                                 <Course key={course.id} course={course} index={index}/>
                                 ))
                             }
