@@ -49,8 +49,7 @@ class WelcomePage extends Component {
     onDragEnd = result => {
         this.setState(
             {homeIndex: null,
-            highlightSection: null,
-            highlightTerm: null}
+            }
         )
 
         // reset the color
@@ -94,6 +93,8 @@ class WelcomePage extends Component {
 
             const newState = {
                 ...this.state,
+                highlightSection: null,
+                highlightTerm: null,
                 columns: {
                     ...this.state.columns, // keep other column, only modify the newCol id
                     [newCol.id]: newCol
@@ -121,10 +122,12 @@ class WelcomePage extends Component {
 
             const newState = {
                 ...this.state,
+                highlightSection: null,
+                highlightTerm: null,
                 columns: {
                     ...this.state.columns,
                     [newStart.id]: newStart,
-                    [newFinish.id]: newFinish
+                    [newFinish.id]: newFinish, 
                 }
             };
 
@@ -153,7 +156,8 @@ class WelcomePage extends Component {
                         {this.state.welcomeOrder.slice(7).map((columnId, index)=> {
                         const column = this.state.columns[columnId];
                         const courses = column.courseIds.map(courseId => this.state.cisCourses[courseId]);
-
+                        
+                        // maybe delete this field??
                         const isDropDisabled = false;
                         const isHighlighted = this.state.highlightTerm === columnId;
                         return <Column key={column.id} column={column} courses={courses} isDropDisabled={isDropDisabled} isHighlighted={isHighlighted}/>;

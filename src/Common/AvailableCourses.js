@@ -23,6 +23,7 @@ export default class AvailableCourses extends React.Component {
                             const section = this.props.state.columns[sectionId]; // find the section in columns
                             const courses = section.courseIds.map(courseId => this.props.state.cisCourses[courseId]); // find the list of instances coressponding to the courseId in this section
 
+                            // maybe delete this field??
                             const isDropDisabled = false;
                             const isHighlighted = this.props.state.highlightSection === sectionId;
                             // we need the column title for displaying so we pass it, which is section in our case here
