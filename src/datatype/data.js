@@ -443,7 +443,7 @@ const initialData = {
         'cisElective': {
             id: 'cisElective',
             title: 'CIS Elective',
-            courseIds: ['cis399', 'cis401', 'cis403', 'cis404', 'cis405', 'cis406', 'cis407', 'cis408', 'cis409', 'cis410', 'cis413', 'cis420', 'cis427', 'cis431', 'cis432', 'cis433', 'cis441', 'cis443', 'cis445', 'cis451', 'cis453', 'cis461', 'cis471', 'cis472']
+            courseIds: ['cis322', 'cis399', 'cis401', 'cis403', 'cis404', 'cis405', 'cis406', 'cis407', 'cis408', 'cis409', 'cis410', 'cis413', 'cis420', 'cis427', 'cis431', 'cis432', 'cis433', 'cis441', 'cis443', 'cis445', 'cis451', 'cis453', 'cis461', 'cis471', 'cis472']
         },
 
         'math': {
@@ -485,13 +485,13 @@ const initialData = {
         'columnTaken': {
             id: 'columnTaken',
             title: 'taken courses',
-            courseIds: [],
+            courseIds: []
+        },
 
-        'non-cis':{
+        'non-cis': {
             id: "non-cis",
             title: 'non cis courses',
-            courseIds: [],
-        }
+            courseIds: ['non-cis']
         }
     },
 
@@ -504,8 +504,8 @@ const initialData = {
         'writing': ['writing'],
     },
 
-    columnOrder: ['cisLower', 'cisUpper', 'cisElective', 'science', 'math', 'writing', 'Term1', 'Term2', 'Term3'],
-    welcomeOrder: ['cisLower', 'cisUpper', 'cisElective', 'science', 'math', 'writing', 'columnTaken']
+    columnOrder: ['cisLower', 'cisUpper', 'cisElective', 'science', 'math', 'writing', 'non-cis', 'Term1', 'Term2', 'Term3'],
+    welcomeOrder: ['cisLower', 'cisUpper', 'cisElective', 'science', 'math', 'writing', 'non-cis', 'columnTaken']
 
 }
 

@@ -132,9 +132,9 @@ class WelcomePage extends Component {
                     onDragUpdate= {this.onDragUpdate}                
                 >
                     <Container>
-                        <AvailableCourses sections={this.state.welcomeOrder.slice(0,6)} state={this.state}> </AvailableCourses>
+                        <AvailableCourses sections={this.state.welcomeOrder.slice(0,7)} state={this.state}> </AvailableCourses>
 
-                        {this.state.welcomeOrder.slice(6).map((columnId, index)=> {
+                        {this.state.welcomeOrder.slice(7).map((columnId, index)=> {
                         const column = this.state.columns[columnId];
                         const courses = column.courseIds.map(courseId => this.state.cisCourses[courseId]);
 
