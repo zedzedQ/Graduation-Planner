@@ -127,7 +127,7 @@ const initialData = {
         },
 
         'cis407': {
-            id: 'cis401',
+            id: 'cis407',
             courseNum: 401, 
             courseTitle: 'Internship', 
             status: 1,
@@ -442,7 +442,7 @@ const initialData = {
            'cisElective': {
                 id: 'cisElective',
                 title: 'CIS Elective',
-                taskIds: ["cis399", "cis401", "cis403", "cis404", "cis405", "cis406", "cis407", "cis408", "cis409", "cis410", "cis413", "cis420", "cis422", "cis427", "cis431", "cis432", "cis433", "cis441", "cis443", "cis445", "cis451", "cis453", "cis461", "cis471", "cis472"]
+                taskIds: ["cis399", "cis401", "cis403", "cis404", "cis405", "cis406", "cis407", "cis408", "cis409", "cis410", "cis413", "cis420", "cis427", "cis431", "cis432", "cis433", "cis441", "cis443", "cis445", "cis451", "cis453", "cis461", "cis471", "cis472"]
             },
            
             'math':{
