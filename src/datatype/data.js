@@ -1,8 +1,9 @@
+import category from './enum';
 const initialData = {
     cisCourses: {
         'cis210': {
             id: 'cis210',
-            courseNum: 210,
+            category: category.CIS_LOWER,
             courseTitle: 'Computer Science I',
             status: 1,
             preReq: [],
@@ -11,7 +12,7 @@ const initialData = {
 
         'cis211': {
             id: 'cis211',
-            courseNum: 211,
+            category: category.CIS_LOWER,
             courseTitle: 'Computer Science II',
             status: 1,
             preReq: ['cis210'],
@@ -20,7 +21,7 @@ const initialData = {
 
         'cis212': {
             id: 'cis212',
-            courseNum: 212,
+            category: category.CIS_LOWER,
             courseTitle: 'Computer Science III',
             status: 1,
             preReq: ['cis211'],
@@ -29,7 +30,7 @@ const initialData = {
 
         'cis313': {
             id: 'cis313',
-            courseNum: 313,
+            category: category.CIS_UPPER,
             courseTitle: 'Intermediate Data Structures',
             status: 1,
             preReq: ['cis212'],
@@ -38,7 +39,7 @@ const initialData = {
 
         'cis314': {
             id: 'cis314',
-            courseNum: 314,
+            category: category.CIS_UPPER,
             courseTitle: 'Computer Organization',
             status: 1,
             preReq: ['cis212'],
@@ -47,7 +48,7 @@ const initialData = {
 
         'cis315': {
             id: 'cis315',
-            courseNum: 315,
+            category: category.CIS_UPPER,
             courseTitle: 'Intermediate Algorithms',
             status: 1,
             preReq: ['cis313'],
@@ -56,7 +57,7 @@ const initialData = {
 
         'cis322': {
             id: 'cis322',
-            courseNum: 322,
+            category: category.CIS_ELECTIVE,
             courseTitle: 'Introduction to Software Engineering',
             status: 1,
             preReq: ['cis212'],
@@ -65,7 +66,7 @@ const initialData = {
 
         'cis330': {
             id: 'cis330',
-            courseNum: 330,
+            category: category.CIS_UPPER,
             courseTitle: 'C/C++ & Unix',
             status: 1,
             preReq: ['cis314'],
@@ -74,7 +75,7 @@ const initialData = {
 
         'cis399': {
             id: 'cis399',
-            courseNum: 399,
+            category: category.CIS_ELECTIVE,
             courseTitle: 'Data Science',
             status: 1,
             preReq: ['cis212'],
@@ -83,7 +84,7 @@ const initialData = {
 
         'cis401': {
             id: 'cis401',
-            courseNum: 401,
+            category: category.CIS_ELECTIVE,
             courseTitle: 'CIS research',
             status: 1,
             preReq: ['cis212'],
@@ -92,7 +93,7 @@ const initialData = {
 
         'cis403': {
             id: 'cis403',
-            courseNum: 403,
+            category: category.CIS_ELECTIVE,
             courseTitle: 'CIS thesis',
             status: 1,
             preReq: ['cis212'],
@@ -101,7 +102,7 @@ const initialData = {
 
         'cis404': {
             id: 'cis404',
-            courseNum: 404,
+            category: category.CIS_ELECTIVE,
             courseTitle: 'Introduction to Internships',
             status: 1,
             preReq: ['cis212'],
@@ -110,7 +111,7 @@ const initialData = {
 
         'cis405': {
             id: 'cis405',
-            courseNum: 405,
+            category: category.CIS_ELECTIVE,
             courseTitle: 'CIS reading',
             status: 1,
             preReq: ['cis212'],
@@ -119,7 +120,7 @@ const initialData = {
 
         'cis406': {
             id: 'cis406',
-            courseNum: 406,
+            category: category.CIS_ELECTIVE,
             courseTitle: 'CIS specific field studies',
             status: 1,
             preReq: ['cis212'],
@@ -128,7 +129,7 @@ const initialData = {
 
         'cis407': {
             id: 'cis407',
-            courseNum: 401,
+            category: category.CIS_ELECTIVE,
             courseTitle: 'Internship',
             status: 1,
             preReq: ['cis212'],
@@ -137,7 +138,7 @@ const initialData = {
 
         'cis408': {
             id: 'cis408',
-            courseNum: 408,
+            category: category.CIS_ELECTIVE,
             courseTitle: 'CIS workshop',
             status: 1,
             preReq: ['cis212'],
@@ -146,7 +147,7 @@ const initialData = {
 
         'cis409': {
             id: 'cis409',
-            courseNum: 409,
+            category: category.CIS_ELECTIVE,
             courseTitle: 'CIS practicum',
             status: 1,
             preReq: ['cis212'],
@@ -155,7 +156,7 @@ const initialData = {
 
         'cis410': {
             id: 'cis410',
-            courseNum: 410,
+            category: category.CIS_ELECTIVE,
             courseTitle: 'Different Topics',
             status: 1,
             preReq: ['cis212'],
@@ -164,7 +165,7 @@ const initialData = {
 
         'cis413': {
             id: 'cis413',
-            courseNum: 413,
+            category: category.CIS_ELECTIVE,
             courseTitle: 'Advanced Data Structures',
             status: 1,
             preReq: ['cis315'],
@@ -173,7 +174,7 @@ const initialData = {
 
         'cis415': {
             id: 'cis415',
-            courseNum: 415,
+            category: category.CIS_UPPER,
             courseTitle: 'Operating Systems',
             status: 1,
             preReq: ['cis313', 'cis330'],
@@ -182,7 +183,7 @@ const initialData = {
 
         'cis420': {
             id: 'cis420',
-            courseNum: 420,
+            category: category.CIS_ELECTIVE,
             courseTitle: 'Automata Theory',
             status: 1,
             preReq: ['cis212'],
@@ -191,7 +192,7 @@ const initialData = {
 
         'cis422': {
             id: 'cis422',
-            courseNum: 422,
+            category: category.CIS_UPPER,
             courseTitle: 'Software Methodology',
             status: 1,
             preReq: ['cis313'],
@@ -201,7 +202,7 @@ const initialData = {
 
         'cis425': {
             id: 'cis425',
-            courseNum: 425,
+            category: category.CIS_UPPER,
             courseTitle: 'Principles of Programming Languages',
             status: 1,
             preReq: ['cis315'],
@@ -210,7 +211,7 @@ const initialData = {
 
         'cis427': {
             id: 'cis427',
-            courseNum: 427,
+            category: category.CIS_ELECTIVE,
             courseTitle: 'Introduction to Logic',
             status: 1,
             preReq: ['cis315', 'cis425'],
@@ -219,7 +220,7 @@ const initialData = {
 
         'cis431': {
             id: 'cis431',
-            courseNum: 431,
+            category: category.CIS_ELECTIVE,
             courseTitle: 'Introduction to Parallel Computing',
             status: 1,
             preReq: ['cis330'],
@@ -228,7 +229,7 @@ const initialData = {
 
         'cis432': {
             id: 'cis432',
-            courseNum: 432,
+            category: category.CIS_ELECTIVE,
             courseTitle: 'Intro to Computer Networks',
             status: 1,
             preReq: ['cis415'],
@@ -237,7 +238,7 @@ const initialData = {
 
         'cis433': {
             id: 'cis433',
-            courseNum: 433,
+            category: category.CIS_ELECTIVE,
             courseTitle: 'Computer & Network Security',
             status: 1,
             preReq: ['cis415'],
@@ -246,7 +247,7 @@ const initialData = {
 
         'cis441': {
             id: 'cis441',
-            courseNum: 441,
+            category: category.CIS_ELECTIVE,
             courseTitle: 'Intro Computer Graphics',
             status: 1,
             preReq: ['cis330'],
@@ -255,7 +256,7 @@ const initialData = {
 
         'cis443': {
             id: 'cis443',
-            courseNum: 443,
+            category: category.CIS_ELECTIVE,
             courseTitle: 'User Interfaces',
             status: 1,
             preReq: ['cis313'],
@@ -265,7 +266,7 @@ const initialData = {
 
         'cis445': {
             id: 'cis445',
-            courseNum: 445,
+            category: category.CIS_ELECTIVE,
             courseTitle: 'Modeling and Simulation',
             status: 1,
             preReq: ['cis315', 'cis330'],
@@ -274,7 +275,7 @@ const initialData = {
 
         'cis451': {
             id: 'cis451',
-            courseNum: 451,
+            category: category.CIS_ELECTIVE,
             courseTitle: 'Database Processing',
             status: 1,
             preReq: ['cis313', 'cis314'],
@@ -283,7 +284,7 @@ const initialData = {
 
         'cis453': {
             id: 'cis453',
-            courseNum: 453,
+            category: category.CIS_ELECTIVE,
             courseTitle: 'Data Mining',
             status: 1,
             preReq: ['cis451'],
@@ -292,7 +293,7 @@ const initialData = {
 
         'cis461': {
             id: 'cis461',
-            courseNum: 461,
+            category: category.CIS_ELECTIVE,
             courseTitle: 'Introduction to Compilers',
             status: 1,
             preReq: ['cis314', 'cis425'],
@@ -301,7 +302,7 @@ const initialData = {
 
         'cis471': {
             id: 'cis471',
-            courseNum: 471,
+            category: category.CIS_ELECTIVE,
             courseTitle: 'Introduction to Artificial Intelligence',
             status: 1,
             preReq: ['cis315'],
@@ -310,7 +311,7 @@ const initialData = {
 
         'cis472': {
             id: 'cis472',
-            courseNum: 472,
+            category: category.CIS_ELECTIVE,
             courseTitle: 'Machine Learning',
             status: 1,
             preReq: ['cis315'],
@@ -319,7 +320,7 @@ const initialData = {
 
         'math231': {
             id: 'math231',
-            courseNum: 231,
+            category: category.CIS_LOWER,
             courseTitle: 'Discrete Mathematics I',
             status: 1,
             preReq: [],
@@ -328,7 +329,7 @@ const initialData = {
 
         'math232': {
             id: 'math232',
-            courseNum: 232,
+            category: category.CIS_LOWER,
             courseTitle: 'Discrete Mathematics II',
             status: 1,
             preReq: ['math231'],
@@ -337,7 +338,7 @@ const initialData = {
 
         'mathGeneral1': {
             id: 'mathGeneral1',
-            courseNum: 1,
+            category: category.MATH,
             courseTitle: 'General Mathmatics',
             status: 1,
             preReq: [],
@@ -346,7 +347,7 @@ const initialData = {
 
         'mathGeneral2': {
             id: 'mathGeneral2',
-            courseNum: 1,
+            category: category.MATH,
             courseTitle: 'General Mathmatics',
             status: 1,
             preReq: [],
@@ -355,7 +356,7 @@ const initialData = {
 
         'mathSequence1': {
             id: 'mathSequence1',
-            courseNum: 1,
+            category: category.MATH,
             courseTitle: 'Mathmatics Sequence I',
             status: 1,
             preReq: [],
@@ -364,7 +365,7 @@ const initialData = {
 
         'mathSequence2': {
             id: 'mathSequence2',
-            courseNum: 1,
+            category: category.MATH,
             courseTitle: 'Mathmatics Sequence II',
             status: 1,
             preReq: [],
@@ -373,7 +374,7 @@ const initialData = {
 
         'mathUpper': {
             id: 'mathUpper',
-            courseNum: 1,
+            category: category.MATH,
             courseTitle: 'Upper-level Mathmatics',
             status: 1,
             preReq: [],
@@ -382,7 +383,7 @@ const initialData = {
 
         'scienceSequence1': {
             id: 'scienceSequence1',
-            courseNum: 1,
+            category: category.SCIENCE,
             courseTitle: 'Science Sequence I',
             status: 1,
             preReq: [],
@@ -391,7 +392,7 @@ const initialData = {
 
         'scienceSequence2': {
             id: 'scienceSequence2',
-            courseNum: 2,
+            category: category.SCIENCE,
             courseTitle: 'Science Sequence II',
             status: 1,
             preReq: [],
@@ -400,7 +401,7 @@ const initialData = {
 
         'scienceSequence3': {
             id: 'scienceSequence3',
-            courseNum: 3,
+            category: category.SCIENCE,
             courseTitle: 'Science Sequence III',
             status: 1,
             preReq: [],
@@ -409,7 +410,7 @@ const initialData = {
 
         'writing': {
             id: 'writing',
-            courseNum: 0,
+            category: category.WRITING,
             courseTitle: 'Writing 320/321',
             status: 1,
             preReq: [],
@@ -418,7 +419,7 @@ const initialData = {
 
         'non-cis': {
             id: 'non-cis',
-            courseNum: 0,
+            category: category.NONCIS,
             courseTitle: 'non-cis class',
             status: 1,
             preReq: [],
@@ -491,7 +492,7 @@ const initialData = {
     courseStandard: {
         'cisLower': ['cis210', 'cis211', 'cis212', 'math231', 'math232'],
         'cisUpper': ['cis313', 'cis314', 'cis315', 'cis330', 'cis415', 'cis422', 'cis425'],
-        'cis_elective': ['cis399', 'cis401', 'cis403', 'cis404', 'cis405', 'cis406', 'cis407', 'cis408', 'cis409', 'cis410', 'cis423', 'cis420', 'cis422', 'cis427', 'cis431', 'cis432', 'cis433', 'cis441', 'cis443', 'cis445', 'cis451', 'cis453', 'cis461', 'cis471', 'cis472'],
+        'cis_elective': ['cis322', 'cis399', 'cis401', 'cis403', 'cis404', 'cis405', 'cis406', 'cis407', 'cis408', 'cis409', 'cis410', 'cis423', 'cis420', 'cis422', 'cis427', 'cis431', 'cis432', 'cis433', 'cis441', 'cis443', 'cis445', 'cis451', 'cis453', 'cis461', 'cis471', 'cis472'],
         'science': ['scienceSequence1', 'scienceSequence2', 'scienceSequence3'],
         'math': ['mathGeneral1', 'mathGeneral2', 'mathSequence1', 'mathSequence2', 'mathUpper'],
         'writing': ['writing'],

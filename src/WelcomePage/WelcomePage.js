@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {NavLink} from "react-router-dom";
-import data from '../data.js'
+import data from '../datatype/data.js'
 import Column from '../Common/Column'
 import AvailableCourses from '../Common/AvailableCourses'
 import '@atlaskit/css-reset';
