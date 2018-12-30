@@ -464,24 +464,6 @@ const initialData = {
             courseIds: ['writing'],
         },
 
-        'Term1': {
-            id: 'Term1',
-            title: 'Term1',
-            courseIds: []
-        },
-
-        'Term2': {
-            id: 'Term2',
-            title: 'Term2',
-            courseIds: []
-        },
-
-        'Term3': {
-            id: 'Term3',
-            title: 'Term3',
-            courseIds: []
-        },
-
         'columnTaken': {
             id: 'columnTaken',
             title: 'taken courses',
@@ -504,7 +486,7 @@ const initialData = {
         'writing': ['writing'],
     },
 
-    columnOrder: ['cisLower', 'cisUpper', 'cisElective', 'science', 'math', 'writing', 'non-cis', 'Term1', 'Term2', 'Term3'],
+    columnOrder: ['cisLower', 'cisUpper', 'cisElective', 'science', 'math', 'writing', 'non-cis', '2019winter'],
     welcomeOrder: ['cisLower', 'cisUpper', 'cisElective', 'science', 'math', 'writing', 'non-cis', 'columnTaken']
 
 }
