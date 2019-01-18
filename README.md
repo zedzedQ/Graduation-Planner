@@ -17,4 +17,5 @@ git clone https://github.com/zetelight/Graduation-Planner.git
 cd Graduation-Planner
 npm install
 npm start
+localhost:3000
 ```
