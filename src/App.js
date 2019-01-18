@@ -11,7 +11,6 @@ class App extends Component {
         this.state = {
             submitted : false  //inital with unsubmitted
         }
-
         this.changeState = this.changeState.bind(this);
 
    }
@@ -35,7 +34,7 @@ class App extends Component {
                     </div>
 
         if (this.state.submitted === true){
-            page = <MainPage/>
+            page = <MainPage datapassed={this.state} />
         }
         console.log(this.state)
 
