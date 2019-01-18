@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {NavLink} from "react-router-dom";
 import data from '../datatype/data.js'
 import Column from '../Common/Column'
 import AvailableCourses from '../Common/AvailableCourses'
@@ -18,18 +17,10 @@ class WelcomePage extends Component {
     constructor(props) {
         super(props);
         this.state = data;
-        // {
-        //     columns: data.columns,
-        //     cisCourses: data.cisCourses,
-        //     welcomeOrder: data.welcomeOrder,
-        //     numberOfColumns: data.welcomeOrder.length,
-            
-        // };
+        this.submit = this.submit.bind(this);
    }
 
     onDragStart = (start) => {
-        // maybe delete this (css currently is overriding it)
-        document.body.style.color = 'orange';
         const homeIn= this.state.columnOrder.indexOf(start.source.droppableId);
         const course = this.state.cisCourses[start.draggableId];
         const highlightSection = course.category;
@@ -46,6 +37,12 @@ class WelcomePage extends Component {
     onDragUpdate = update => {
 
     };
+
+
+    //function for submit button
+    submit(){
+       this.props.ParentSubmit(this.state)
+    }
 
     onDragEnd = result => {
         this.setState(
@@ -141,12 +138,12 @@ class WelcomePage extends Component {
     
 
     render() {
+
+        
         return (
             <div>
                 <div>
-
-                <NavLink  to="/main" >  Main page </NavLink>
-                
+                    <button onClick={this.submit} > submit </button>
                 </div>
 
                 <DragDropContext 
