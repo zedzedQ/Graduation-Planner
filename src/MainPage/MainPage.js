@@ -18,11 +18,7 @@ class MainPage extends Component {
 
     render() {
         return (
-            <div>
-
-                <NavLink  to="/" >  welcome page </NavLink>
-    
-            </div>
+           <p> main page </p>
         );
     }
 

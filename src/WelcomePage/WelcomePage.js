@@ -18,6 +18,8 @@ class WelcomePage extends Component {
     constructor(props) {
         super(props);
         this.state = data;
+
+
         // {
         //     columns: data.columns,
         //     cisCourses: data.cisCourses,
@@ -25,6 +27,7 @@ class WelcomePage extends Component {
         //     numberOfColumns: data.welcomeOrder.length,
             
         // };
+        this.submit = this.submit.bind(this);
    }
 
     onDragStart = (start) => {
@@ -46,6 +49,12 @@ class WelcomePage extends Component {
     onDragUpdate = update => {
 
     };
+
+
+//function for submit button
+    submit(){
+       this.props.ParentSubmit(this.state)
+    }
 
     onDragEnd = result => {
         this.setState(
@@ -141,11 +150,13 @@ class WelcomePage extends Component {
     
 
     render() {
+
+        
         return (
             <div>
                 <div>
-
-                <NavLink  to="/main" >  Main page </NavLink>
+                    <button onClick={this.submit} > submit </button>
+                
                 
                 </div>
 
