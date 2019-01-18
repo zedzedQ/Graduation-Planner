@@ -5,16 +5,12 @@ import React, { Component } from 'react';
 class MainPage extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            columns: [],
-            cisCourses: [],
-            columnOrder: [],
-            numberOfColumns: 0
-        };
+        this.state = this.props.datapassed;
     }
 
     render() {
-        console.log(this.props.datapassed)
+        console.log("State trigged at the main page")
+        console.log(this.state);
         return (
            <p> main page </p>
         );

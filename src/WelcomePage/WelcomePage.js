@@ -17,21 +17,10 @@ class WelcomePage extends Component {
     constructor(props) {
         super(props);
         this.state = data;
-
-
-        // {
-        //     columns: data.columns,
-        //     cisCourses: data.cisCourses,
-        //     welcomeOrder: data.welcomeOrder,
-        //     numberOfColumns: data.welcomeOrder.length,
-            
-        // };
         this.submit = this.submit.bind(this);
    }
 
     onDragStart = (start) => {
-        // maybe delete this (css currently is overriding it)
-        document.body.style.color = 'orange';
         const homeIn= this.state.columnOrder.indexOf(start.source.droppableId);
         const course = this.state.cisCourses[start.draggableId];
         const highlightSection = course.category;
