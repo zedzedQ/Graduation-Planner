@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {NavLink} from "react-router-dom";
 import data from '../datatype/data.js'
 import Column from '../Common/Column'
 import AvailableCourses from '../Common/AvailableCourses'
@@ -51,7 +50,7 @@ class WelcomePage extends Component {
     };
 
 
-//function for submit button
+    //function for submit button
     submit(){
        this.props.ParentSubmit(this.state)
     }
@@ -156,8 +155,6 @@ class WelcomePage extends Component {
             <div>
                 <div>
                     <button onClick={this.submit} > submit </button>
-                
-                
                 </div>
 
                 <DragDropContext 

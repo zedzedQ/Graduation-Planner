@@ -1,13 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-
 import WelcomePage from "./WelcomePage/WelcomePage";
 import MainPage from "./MainPage/MainPage";
-import {
-    BrowserRouter,
-    Route,
-    Switch
-} from 'react-router-dom'
 
 
 class App extends Component {
@@ -22,7 +16,7 @@ class App extends Component {
 
    }
 
-//this function will be passed to the child component and will be used to transfer data in child component in this main component
+    //this function will be passed to the child component and will be used to transfer data in child component in this main component
     changeState(state){
         console.log(state)
         this.setState(
@@ -35,10 +29,10 @@ class App extends Component {
 
     render() {
 
-        //if the page just opened, display welcome page
-        var page = <div>
-                <WelcomePage ParentSubmit={this.changeState} />
-            </div>
+        //if the page just opened, display welcome page, or main page.
+        var page =  <div>
+                        <WelcomePage ParentSubmit={this.changeState} />
+                    </div>
 
         if (this.state.submitted === true){
             page = <MainPage/>
