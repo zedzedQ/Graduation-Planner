@@ -71,7 +71,7 @@ class WelcomePage extends Component {
             return;
         }
 
-        // we can only drag to the same column or taken column
+        // we can only drag to the course's category column or taken column
         const course = this.state.cisCourses[draggableId];
         if (destination.droppableId !== course.category && destination.droppableId !== this.state.welcomeOrder[this.state.welcomeOrder.length - 1]){
             return;
