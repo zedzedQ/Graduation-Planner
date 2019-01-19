@@ -19,7 +19,7 @@ class App extends Component {
         console.log(state);
         this.setState(
             {
-                data:state,
+                ...state,
                 submitted : true
             }
         )

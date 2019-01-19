@@ -18,6 +18,7 @@ class WelcomePage extends Component {
         super(props);
         this.state = data;
         this.submit = this.submit.bind(this);
+        this.checkPrev = this.checkPrev.bind(this);
    }
 
     onDragStart = (start) => {
@@ -38,10 +39,41 @@ class WelcomePage extends Component {
 
     };
 
+    //function for checking if all the courses in taken courses have prev requirement and move all the prev to taken course.
+    checkPrev(){
+        
+        var takenCourse = this.state.columns.columnTaken.courseIds.slice()
+        console.log("checkPrev")
+        console.log(takenCourse)
+
+        var takenCourseQueue = []
+        
+        for (var i in takenCourse){
+            takenCourseQueue.push(takenCourse[i])
+        }
+
+        while (takenCourseQueue.length !== 0){
+            var course =  this.state.cisCourses[takenCourseQueue[0]]
+            if (course.preReq !== []){
+                for (var j in course.preReq){
+                    if (!takenCourse.includes(course.preReq[j])){
+                        takenCourse.push(course.preReq[j])
+                        takenCourseQueue.push(course.preReq[j])
+                }
+            }
+        }
+        takenCourseQueue.shift()
+    }
+
+        console.log("final result")
+        console.log(takenCourse)
+    }
+    
 
     //function for submit button
     submit(){
        this.props.ParentSubmit(this.state)
+       this.checkPrev()
     }
 
     onDragEnd = result => {
