@@ -5,6 +5,7 @@ import AvailableCourses from '../Common/AvailableCourses'
 import '@atlaskit/css-reset';
 import { DragDropContext } from 'react-beautiful-dnd';
 import styled from 'styled-components';
+import InfoSection from '../Common/InfoSeciton'
 
 
 const Container = styled.div`
@@ -165,6 +166,7 @@ class WelcomePage extends Component {
                         })}
                     </Container>
 
+                    <InfoSection />
                 </DragDropContext>
             </div>
             
