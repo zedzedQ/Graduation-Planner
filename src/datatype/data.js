@@ -395,7 +395,7 @@ const initialData = {
             category: category.SCIENCE,
             courseTitle: 'Science Sequence II',
             status: 1,
-            preReq: [],
+            preReq: ['scienceSequence1'],
             termAvailability: ['fall', 'winter', 'summer', 'spring']
         },
 
@@ -404,7 +404,7 @@ const initialData = {
             category: category.SCIENCE,
             courseTitle: 'Science Sequence III',
             status: 1,
-            preReq: [],
+            preReq: ['scienceSequence2'],
             termAvailability: ['fall', 'winter', 'summer', 'spring']
         },
 

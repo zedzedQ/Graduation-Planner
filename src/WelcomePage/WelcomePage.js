@@ -5,6 +5,7 @@ import AvailableCourses from '../Common/AvailableCourses'
 import '@atlaskit/css-reset';
 import { DragDropContext } from 'react-beautiful-dnd';
 import styled from 'styled-components';
+import cloneDeep from 'lodash/cloneDeep';
 
 
 const Container = styled.div`
@@ -18,6 +19,7 @@ class WelcomePage extends Component {
         super(props);
         this.state = data;
         this.submit = this.submit.bind(this);
+        this.checkBeforeSubmit = this.checkBeforeSubmit.bind(this);
    }
 
     onDragStart = (start) => {
@@ -39,10 +41,77 @@ class WelcomePage extends Component {
     };
 
 
+    // check for any illegal selection of courses
+    checkBeforeSubmit(){
+        var takenClass;
+        var preReq;
+        var missingClasses = [];
+        var belongedCol;
+        var curCourse;
+        var takenArr = this.state.columns['columnTaken'].courseIds;
+        var filtered = cloneDeep(this.state.columns);
+
+        // check and add the immediate preReqs of the selected classes
+        for (var i = 0; i < takenArr.length; i++){
+            takenClass = this.state.cisCourses[takenArr[i]];
+            for (var j =0; j<takenClass.preReq.length; j++) {
+                preReq = takenClass.preReq[j];
+                // only add the class when it is not in selected classes
+                // and when it is not already in the missingClasses array
+                if (takenArr.includes(preReq) === false){
+                    if (missingClasses.includes(preReq) === false){
+                        missingClasses.push(preReq);
+                    }
+                }
+            }
+        }
+
+        // check and add the secondary preReqs of the selected classes
+        for (i = 0; i<missingClasses.length; i++){
+            takenClass = this.state.cisCourses[missingClasses[i]];
+            for (j = 0; j<takenClass.preReq.length; j++){
+                preReq = takenClass.preReq[j];
+                if (missingClasses.includes(preReq) === false){
+                    missingClasses.push(preReq);
+                }
+            }
+        }
+
+        // check if user wants to add the classes to taken
+        // delete them from original columns and add to columnTaken
+        if (missingClasses.length !== 0){
+            var message = "You are selecting certain course(s) without selecting its prereqs, do you want the webpage to include the following preReqs for you?\n" + missingClasses;
+            if (window.confirm(message)){
+                filtered['columnTakend'] = this.state.columns['columnTaken'].courseIds.concat(missingClasses);
+                
+                for(i = 0; i < missingClasses.length; i++){ 
+                    curCourse = this.state['cisCourses'][missingClasses[i]]
+                    belongedCol = curCourse.category;
+                    for (j=0; j<filtered[belongedCol].courseIds.length; j++){
+                        if ( filtered[belongedCol].courseIds[j] === missingClasses[i]) {
+                            filtered[belongedCol].courseIds.splice(j, 1); 
+                        }
+                    }
+                    
+                 }
+            }
+        }
+
+        const newState = {
+            ...this.state,
+            columns: filtered,
+        }
+
+        return newState;
+
+    }
+
     //function for submit button
     submit(){
-       this.props.ParentSubmit(this.state)
+        var newState = this.checkBeforeSubmit();
+        this.props.ParentSubmit(newState);
     }
+
 
     onDragEnd = result => {
         this.setState(
