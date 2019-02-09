@@ -44,64 +44,61 @@ class WelcomePage extends Component {
 
     // check for any illegal selection of courses
     checkBeforeSubmit(){
-        var takenClass;
-        var preReq;
-        var missingClasses = [];
         var belongedCol;
         var curCourse;
-        var takenArr = this.state.columns['columnTaken'].courseIds;
+        //a list of courses which already taken. Including all the missing courses.
+        var takenCourse = this.state.columns.columnTaken.courseIds.slice();
+        //queue for run BFS 
+        var BFSqueue = []; 
         var filtered = cloneDeep(this.state.columns);
+        // boolean value indicate whether go to next page
         var nextPage;
-        var message = "Going to the next page"
+        // message to show on the pop-up window
+        var message = "Click Ok to go to the next page"
 
-        // check and add the immediate preReqs of the selected classes
-        for (var i = 0; i < takenArr.length; i++){
-            takenClass = this.state.cisCourses[takenArr[i]];
-            for (var j =0; j<takenClass.preReq.length; j++) {
-                preReq = takenClass.preReq[j];
-                // only add the class when it is not in selected classes
-                // and when it is not already in the missingClasses array
-                if (takenArr.includes(preReq) === false){
-                    if (missingClasses.includes(preReq) === false){
-                        missingClasses.push(preReq);
-                    }
+        for (let i in takenCourse){
+            BFSqueue.push(takenCourse[i])
+        }
+
+        while (BFSqueue.length !== 0){
+            var course =  this.state.cisCourses[BFSqueue[0]]
+            if (course.preReq !== []){
+                for (let j in course.preReq){
+                    if (!takenCourse.includes(course.preReq[j])){
+                        takenCourse.push(course.preReq[j])
+                        BFSqueue.push(course.preReq[j])
                 }
             }
         }
+        BFSqueue.shift()
+    }
 
-        // check and add the secondary preReqs of the selected classes
-        for (i = 0; i<missingClasses.length; i++){
-            takenClass = this.state.cisCourses[missingClasses[i]];
-            for (j = 0; j<takenClass.preReq.length; j++){
-                preReq = takenClass.preReq[j];
-                if (missingClasses.includes(preReq) === false){
-                    missingClasses.push(preReq);
-                }
-            }
+        // change message if there are any prereq courses that aren't taken
+        if (takenCourse.length !== 0){
+            message = "You are selecting certain course(s) without selecting its prereqs, do you want the webpage to include the following preReqs for you?\n\n" + takenCourse.slice(1);
         }
 
-        
+        console.log(takenCourse);
 
-        // check if user wants to add the classes to taken
-        // delete them from original columns and add to columnTaken
-        if (missingClasses.length !== 0){
-            var message = "You are selecting certain course(s) without selecting its prereqs, do you want the webpage to include the following preReqs for you?\n" + missingClasses;
-        }
-
+        // check if user wants to goes to next page
+        // ok: added all the needed prereqs to columnTaken /  and go to the nextPage
+        // cancel: stay at the current page, no change
         nextPage = window.confirm(message);
 
+        // delete them from original columns and add to columnTaken\
+
         if (nextPage){
-            filtered['columnTaken'].courseIds = this.state.columns['columnTaken'].courseIds.concat(missingClasses);
-            
-            for(i = 0; i < missingClasses.length; i++){ 
-                curCourse = this.state['cisCourses'][missingClasses[i]]
+            // filtered['columnTaken'].courseIds = this.state.columns['columnTaken'].courseIds.concat(takenCourse);
+            filtered['columnTaken'].courseIds = takenCourse;
+
+            for(let i = 0; i < takenCourse.length; i++){ 
+                curCourse = this.state['cisCourses'][takenCourse[i]]
                 belongedCol = curCourse.category;
-                for (j=0; j<filtered[belongedCol].courseIds.length; j++){
-                    if ( filtered[belongedCol].courseIds[j] === missingClasses[i]) {
+                for (let j=0; j<filtered[belongedCol].courseIds.length; j++){
+                    if ( filtered[belongedCol].courseIds[j] === takenCourse[i]) {
                         filtered[belongedCol].courseIds.splice(j, 1); 
                     }
                 }
-                
              }
         }
 
@@ -116,6 +113,7 @@ class WelcomePage extends Component {
 
     //function for submit button
     submit(){
+        // return the newstate and nextPage(bool)
         var {newState, nextPage} = this.checkBeforeSubmit();
         if (nextPage){
             this.props.ParentSubmit(newState);
