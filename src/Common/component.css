@@ -1,0 +1,20 @@
+/* This .css use to control the color of ReactHover components */
+
+/* Hover is the pop window */
+.hover {
+    background-color: black;   
+    width: auto;
+    height: auto; 
+    border-style: double;
+    border-color: greenyellow;
+    color: white;
+}
+
+/* trigger is the swith to open the Hover */
+.trigger {
+    font-size: 0.8em;
+    background-color: #44B39D;
+    color: white;
+    width: 200px;
+}
+

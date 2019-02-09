@@ -141,8 +141,11 @@ class WelcomePage extends Component {
 
         
         return (
+
+
             <div>
                 <div>
+
                     <button onClick={this.submit} > submit </button>
                 </div>
 
@@ -152,6 +155,7 @@ class WelcomePage extends Component {
                     onDragUpdate= {this.onDragUpdate}                
                 >
                     <Container>
+                        {/* Avalible Courses list * 7 */}
                         <AvailableCourses sections={this.state.welcomeOrder.slice(0,7)} state={this.state}> </AvailableCourses>
 
                         {this.state.welcomeOrder.slice(7).map((columnId, index)=> {
@@ -161,6 +165,8 @@ class WelcomePage extends Component {
                         // maybe delete this field??
                         const isDropDisabled = false;
                         const isHighlighted = this.state.highlightTerm === columnId;
+                        
+                        // Taken courses list contianer
                         return <Column key={column.id} column={column} courses={courses} isDropDisabled={isDropDisabled} isHighlighted={isHighlighted}/>;
                         })}
                     </Container>

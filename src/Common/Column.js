@@ -2,6 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 import Course from './Course';
 import { Droppable } from 'react-beautiful-dnd';
+import ReactHover from '../ReactHover';
+import './component.css'
+
+
+const optionsCursorTrueWithMargin = {
+    followCursor: true,
+    shiftX: 20,
+    shiftY: 0,
+}
 
 const CourseContainer = styled.div`
     margin: 8px;
@@ -41,9 +50,24 @@ export default class Column extends React.Component {
                             isDraggingOver={snapshot.isDraggingOver}
                             isHighlighted={this.props.isHighlighted}
                         >
+
+
                             {
                                 this.props.courses.map((course, index) => (
-                                <Course key={course.id} course={course} index={index}/>
+                                    <div>
+                                        <ReactHover
+                                            options={optionsCursorTrueWithMargin}>
+                                            <ReactHover.Trigger type='trigger'>
+                                            <Course key={course.id} course={course} index={index} />                     
+                                            </ReactHover.Trigger>
+                                            <ReactHover.Hover type='hover'>
+                                                <div className={'hover'}>
+                                                    <p>{course.courseTitle}</p>
+                                                    <p>Prerequisite: {course.preReq.map((pre) => (pre + "; "))}</p>
+                                                </div>
+                                            </ReactHover.Hover>
+                                        </ReactHover>
+                                </div>
                                 ))
                             }
                             {provided.placeholder}
