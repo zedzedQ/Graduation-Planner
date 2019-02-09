@@ -17,15 +17,33 @@ const Container = styled.div`
 class WelcomePage extends Component {
     constructor(props) {
         super(props);
-        this.state = data;
-        // {
-        //     columns: data.columns,
-        //     cisCourses: data.cisCourses,
-        //     welcomeOrder: data.welcomeOrder,
-        //     numberOfColumns: data.welcomeOrder.length,
-            
-        // };
-   }
+        this.state = {
+            ...data,
+            showMenu: false,
+        };
+        // drop down menu: https://blog.campvanilla.com/reactjs-dropdown-menus-b6e06ae3a8fe
+        this.showMenu = this.showMenu.bind(this);
+        this.closeMenu = this.closeMenu.bind(this);
+    }
+
+    showMenu(event) {
+        event.preventDefault();
+        this.setState({ showMenu: true }, () => {
+            document.addEventListener('click', this.closeMenu);
+          });
+    }
+
+    closeMenu(event) {
+    
+        if (!this.dropdownMenu.contains(event.target)) {
+          
+          this.setState({ showMenu: false }, () => {
+            document.removeEventListener('click', this.closeMenu);
+          });  
+          
+        }
+    }
+
 
     onDragStart = (start) => {
         // maybe delete this (css currently is overriding it)
@@ -145,9 +163,30 @@ class WelcomePage extends Component {
             <div>
                 <div>
 
-                <NavLink  to="/main" >  Main page </NavLink>
+                    <NavLink  to="/main" >  Main page </NavLink>
+                    <button onClick={this.showMenu}>
+                        Graduation Year
+                    </button>
                 
                 </div>
+                {
+                    this.state.showMenu
+                        ? (
+                        <div
+                            className="Class_Year"
+                            ref={(element) => {
+                            this.dropdownMenu = element;
+                            }}
+                        >
+                            <button> 2019 </button>
+                            <button> 2020 </button>
+                            <button> 2011 </button>
+                        </div>
+                        )
+                        : (
+                        null
+                        )
+                }
 
                 <DragDropContext 
                     onDragEnd = {this.onDragEnd}
@@ -169,11 +208,9 @@ class WelcomePage extends Component {
                     </Container>
 
                 </DragDropContext>
-            </div>
-            
+            </div>   
         );
     }
-
 }
 
 export default WelcomePage;
