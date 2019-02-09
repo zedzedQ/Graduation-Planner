@@ -50,6 +50,8 @@ class WelcomePage extends Component {
         var curCourse;
         var takenArr = this.state.columns['columnTaken'].courseIds;
         var filtered = cloneDeep(this.state.columns);
+        var nextPage;
+        var message = "Going to the next page"
 
         // check and add the immediate preReqs of the selected classes
         for (var i = 0; i < takenArr.length; i++){
@@ -77,24 +79,29 @@ class WelcomePage extends Component {
             }
         }
 
+        
+
         // check if user wants to add the classes to taken
         // delete them from original columns and add to columnTaken
         if (missingClasses.length !== 0){
             var message = "You are selecting certain course(s) without selecting its prereqs, do you want the webpage to include the following preReqs for you?\n" + missingClasses;
-            if (window.confirm(message)){
-                filtered['columnTakend'] = this.state.columns['columnTaken'].courseIds.concat(missingClasses);
-                
-                for(i = 0; i < missingClasses.length; i++){ 
-                    curCourse = this.state['cisCourses'][missingClasses[i]]
-                    belongedCol = curCourse.category;
-                    for (j=0; j<filtered[belongedCol].courseIds.length; j++){
-                        if ( filtered[belongedCol].courseIds[j] === missingClasses[i]) {
-                            filtered[belongedCol].courseIds.splice(j, 1); 
-                        }
+        }
+
+        nextPage = window.confirm(message);
+
+        if (nextPage){
+            filtered['columnTaken'].courseIds = this.state.columns['columnTaken'].courseIds.concat(missingClasses);
+            
+            for(i = 0; i < missingClasses.length; i++){ 
+                curCourse = this.state['cisCourses'][missingClasses[i]]
+                belongedCol = curCourse.category;
+                for (j=0; j<filtered[belongedCol].courseIds.length; j++){
+                    if ( filtered[belongedCol].courseIds[j] === missingClasses[i]) {
+                        filtered[belongedCol].courseIds.splice(j, 1); 
                     }
-                    
-                 }
-            }
+                }
+                
+             }
         }
 
         const newState = {
@@ -102,14 +109,17 @@ class WelcomePage extends Component {
             columns: filtered,
         }
 
-        return newState;
+        return {newState, nextPage};
 
     }
 
     //function for submit button
     submit(){
-        var newState = this.checkBeforeSubmit();
-        this.props.ParentSubmit(newState);
+        var {newState, nextPage} = this.checkBeforeSubmit();
+        if (nextPage){
+            this.props.ParentSubmit(newState);
+        }
+        
     }
 
 
