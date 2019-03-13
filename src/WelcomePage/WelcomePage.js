@@ -7,6 +7,7 @@ import { DragDropContext } from 'react-beautiful-dnd';
 import styled from 'styled-components';
 import cloneDeep from 'lodash/cloneDeep';
 import InfoSection from '../Common/InfoSeciton'
+import DropDownMenu from './DropDownMenu'
 
 
 const Container = styled.div`
@@ -18,9 +19,23 @@ const Container = styled.div`
 class WelcomePage extends Component {
     constructor(props) {
         super(props);
-        this.state = data;
+        this.state = {
+            ...data,
+            startYear: "",
+            startTerm: ""
+        };
         this.submit = this.submit.bind(this);
         this.checkBeforeSubmit = this.checkBeforeSubmit.bind(this);
+        
+   }
+
+   onUpdate(val){
+       this.setState({
+            startYear: val.year,
+            startTerm: val.term
+       })
+       console.log(this.state);
+       console.log(val);
    }
 
     onDragStart = (start) => {
@@ -83,7 +98,12 @@ class WelcomePage extends Component {
         // check if user wants to goes to next page
         // ok: added all the needed prereqs to columnTaken /  and go to the nextPage
         // cancel: stay at the current page, no change
-        nextPage = window.confirm(message);
+        nextPage = window.confirm(message) && (this.state.startTerm !== "" && this.state.startYear !== "");
+        
+        // alert window if user didn't select the term / year
+        if (this.state.startTerm === "" || this.state.startYear === ""){
+            alert("Please select year and term!");
+        }
 
         // delete them from original columns and add to columnTaken\
 
@@ -242,7 +262,7 @@ class WelcomePage extends Component {
                         return <Column key={column.id} column={column} courses={courses} isDropDisabled={isDropDisabled} isHighlighted={isHighlighted}/>;
                         })}
                     </Container>
-
+                    <DropDownMenu onUpdate={this.onUpdate.bind(this)}> </DropDownMenu>
                     <InfoSection />
                 </DragDropContext>
             </div>
