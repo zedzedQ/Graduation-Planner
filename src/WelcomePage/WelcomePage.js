@@ -55,7 +55,8 @@ class WelcomePage extends Component {
         var nextPage;
         // message to show on the pop-up window
         var message = "Click Ok to go to the next page"
-
+        var numChosen = takenCourse.length;
+        
         for (let i in takenCourse){
             BFSqueue.push(takenCourse[i])
         }
@@ -75,7 +76,7 @@ class WelcomePage extends Component {
 
         // change message if there are any prereq courses that aren't taken
         if (takenCourse.length !== 0){
-            message = "You are selecting certain course(s) without selecting its prereqs, do you want the webpage to include the following preReqs for you?\n\n" + takenCourse.slice(1);
+            message = "You are selecting certain course(s) without selecting its prereqs, do you want the webpage to include the following preReqs for you?\n\n" + takenCourse.slice(numChosen);
         }
 
         console.log(takenCourse);
